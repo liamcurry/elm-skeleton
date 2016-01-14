@@ -1,4 +1,4 @@
-[*.{json,js,elm,scss,jade}]
+[*.{json,js,elm,scss,sass,jade}]
 charset = utf-8
 indent_style = spaces
 indent_size = 4
