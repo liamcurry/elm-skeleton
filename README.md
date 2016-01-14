@@ -10,7 +10,9 @@ A simple skeleton for getting started building Elm web apps. Comes with:
 ## Getting started
 
 ```shell
-elm install
+git clone https://github.com/liamcurry/elm-skeleton.git
+cd elm-skeleton
+elm package install -y
 npm install
 npm start
 ```
