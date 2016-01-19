@@ -1,10 +1,14 @@
 # elm-skeleton
 
-A simple skeleton for getting started building Elm web apps. Comes with:
+A simple skeleton for getting started building Elm web apps.
 
-- Automatic compilation of Elm, SCSS, and Jade files
+## Features
+
+- Automatic compilation of Jade, SASS, and Elm files
+- Automatic compression for HTML, CSS, and Javascript files
+- Automatic gzip compression with `zopfli` for all files
 - BrowserSync to see changes immediately
-- A simple task to quickly deploy to GitHub pages (`npm run gh-pages`)
+- Easy deployment to GitHub pages with `npm run gh-pages`
 - EditorConfig config for style consistency
 
 ## Getting started
@@ -21,5 +25,4 @@ npm start
 
 - Compress images
 - Spritesheets?
-- Gzip/zopfli compression
 - npm script for S3 deployment
