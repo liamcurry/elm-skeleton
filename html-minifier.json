@@ -1,0 +1,23 @@
+{
+    "removeComments": true,
+    "removeCommentsFromCDATA": false,
+    "removeCDATASectionsFromCDATA": false,
+    "collapseWhitespace": true,
+    "conservativeCollapse": false,
+    "collapseBooleanAttributes": true,
+    "removeAttributeQuotes": true,
+    "removeRedundantAttributes": true,
+    "useShortDoctype": false,
+    "removeEmptyAttributes": false,
+    "removeOptionalTags": true,
+    "removeEmptyElements": false,
+    "removeScriptTypeAttributes": true,
+    "removeStyleLinkTypeAttributes": true,
+    "lint": false,
+    "keepClosingSlash": false,
+    "caseSensitive": false,
+    "minifyJS": false,
+    "minifyCSS": false,
+    "ignoreCustomComments": [],
+    "processScripts": []
+}

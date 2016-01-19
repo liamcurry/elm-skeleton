@@ -1,33 +1,42 @@
 {
-    "name": "elm-skeleton",
-    "version": "1.0.0",
-    "description": "A basic skeleton for getting started building Elm web apps",
-    "main": "elm.js",
-    "scripts": {
-        "clean": "rm -rf dist/* build/*",
-        "build-js": "elm-make --output dist/main.js --warn src/elm/Main.elm",
-        "build-css": "node-sass -o dist --include-path node_modules src/sass/main.sass",
-        "build-html": "jade src -o dist",
-        "prebuild": "npm run clean",
-        "build": "npm run build-js && npm run build-css && npm run build-html",
-        "watch-js": "nodemon -w src/elm/ -e elm --exec 'npm run build-js'",
-        "watch-css": "npm run build-css -- -w src/sass/",
-        "watch-html": "npm run build-html -- -w",
-        "watch": "parallelshell 'npm run watch-js' 'npm run watch-css' 'npm run watch-html'",
-        "serve": "browser-sync start --files='dist/*.(html|css|js)' --https --server=dist",
-        "start": "parallelshell 'npm run watch' 'npm run serve'",
-        "gh-pages": "git subtree push --prefix dist origin gh-pages"
-    },
-    "author": {
-        "name": "Liam Curry",
-        "url": "http://liamcurry.com"
-    },
-    "license": "ISC",
-    "devDependencies": {
-        "browser-sync": "^2.11.0",
-        "jade": "^1.11.0",
-        "node-sass": "^3.4.2",
-        "nodemon": "^1.8.1",
-        "parallelshell": "^2.0.0"
-    }
+  "name": "elm-skeleton",
+  "version": "1.0.0",
+  "description": "A basic skeleton for getting started building Elm web apps",
+  "main": "elm.js",
+  "scripts": {
+    "clean": "rm -rf dist/* build/*",
+    "build-js": "elm-make --output build/main.js --warn src/elm/Main.elm && uglifyjs build/main.js > dist/main.js",
+    "postbuild-js": "zopfli dist/main.js",
+    "build-css": "node-sass --include-path node_modules src/sass/main.sass | postcss -c postcss.json | csso > dist/main.css",
+    "postbuild-css": "zopfli dist/main.css",
+    "build-html": "jade < src/index.jade | html-minifier -c html-minifier.json > dist/index.html",
+    "postbuild-html": "zopfli dist/index.html",
+    "prebuild": "npm run clean",
+    "build": "npm run build-js && npm run build-css && npm run build-html",
+    "watch-js": "nodemon -w src/elm/ -e elm --exec 'npm run build-js'",
+    "watch-css": "nodemon -w src/sass/ -e sass --exec 'npm run build-css'",
+    "watch-html": "nodemon -w src/ -e jade --exec 'npm run build-html'",
+    "watch": "parallelshell 'npm run watch-js' 'npm run watch-css' 'npm run watch-html'",
+    "serve": "browser-sync start --files='dist/*.(html|css|js)' --https --server=dist",
+    "start": "parallelshell 'npm run watch' 'npm run serve'",
+    "gh-pages": "git subtree push --prefix dist origin gh-pages"
+  },
+  "author": {
+    "name": "Liam Curry",
+    "url": "http://liamcurry.com"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.3.1",
+    "browser-sync": "^2.11.0",
+    "csso": "^1.5.1",
+    "html-minifier": "^1.0.0",
+    "jade": "^1.11.0",
+    "node-sass": "^3.4.2",
+    "node-zopfli": "^1.4.0",
+    "nodemon": "^1.8.1",
+    "parallelshell": "^2.0.0",
+    "postcss-cli": "^2.4.0",
+    "uglify-js": "^2.6.1"
+  }
 }
