@@ -7,7 +7,7 @@
     "clean": "rm -rf dist/* build/*",
     "build-js": "elm-make --output build/main.js --warn src/elm/Main.elm && uglifyjs build/main.js > dist/main.js",
     "postbuild-js": "zopfli dist/main.js",
-    "build-css": "node-sass --include-path node_modules src/sass/main.sass | postcss -c postcss.json | csso > dist/main.css",
+    "build-css": "node-sass --include-path node_modules src/sass/main.sass | postcss -c postcss.json > dist/main.css",
     "postbuild-css": "zopfli dist/main.css",
     "build-html": "jade < src/index.jade | html-minifier -c html-minifier.json > dist/index.html",
     "postbuild-html": "zopfli dist/index.html",
@@ -29,7 +29,7 @@
   "devDependencies": {
     "autoprefixer": "^6.3.1",
     "browser-sync": "^2.11.0",
-    "csso": "^1.5.1",
+    "cssnano": "^3.4.0",
     "html-minifier": "^1.0.0",
     "jade": "^1.11.0",
     "node-sass": "^3.4.2",

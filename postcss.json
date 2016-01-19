@@ -1,5 +1,5 @@
 {
-    "use": ["autoprefixer"],
+    "use": ["autoprefixer", "cssnano"],
     "autoprefixer": {
         "browsers": "> 5%"
     }
