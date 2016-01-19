@@ -6,18 +6,19 @@
   "scripts": {
     "clean": "rm -rf dist/* build/*",
     "build-js": "elm-make --output build/main.js --warn src/elm/Main.elm && uglifyjs build/main.js > dist/main.js",
-    "postbuild-js": "zopfli dist/main.js",
+    "postbuild-js": "zopfli dist/main.js && npm run build-assets",
     "build-css": "node-sass --include-path node_modules src/sass/main.sass | postcss -c postcss.json > dist/main.css",
-    "postbuild-css": "zopfli dist/main.css",
+    "postbuild-css": "zopfli dist/main.css && npm run build-assets",
     "build-html": "jade < src/index.jade | html-minifier -c html-minifier.json > dist/index.html",
-    "postbuild-html": "zopfli dist/index.html",
+    "postbuild-html": "zopfli dist/index.html && npm run build-assets",
+	"build-assets": "sw-precache --root=dist",
     "prebuild": "npm run clean",
     "build": "npm run build-js && npm run build-css && npm run build-html",
     "watch-js": "nodemon -w src/elm/ -e elm --exec 'npm run build-js'",
     "watch-css": "nodemon -w src/sass/ -e sass --exec 'npm run build-css'",
     "watch-html": "nodemon -w src/ -e jade --exec 'npm run build-html'",
     "watch": "parallelshell 'npm run watch-js' 'npm run watch-css' 'npm run watch-html'",
-    "serve": "browser-sync start --files='dist/*.(html|css|js)' --https --server=dist",
+    "serve": "browser-sync start --files='dist/*.(html|css|js)' --server=dist",
     "start": "parallelshell 'npm run watch' 'npm run serve'",
     "gh-pages": "git subtree push --prefix dist origin gh-pages"
   },
@@ -37,6 +38,7 @@
     "nodemon": "^1.8.1",
     "parallelshell": "^2.0.0",
     "postcss-cli": "^2.4.0",
+    "sw-precache": "^2.3.0",
     "uglify-js": "^2.6.1"
   }
 }

@@ -16,8 +16,8 @@
     "lint": false,
     "keepClosingSlash": false,
     "caseSensitive": false,
-    "minifyJS": false,
-    "minifyCSS": false,
+    "minifyJS": true,
+    "minifyCSS": true,
     "ignoreCustomComments": [],
     "processScripts": []
 }
