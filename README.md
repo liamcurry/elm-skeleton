@@ -7,6 +7,7 @@ A simple skeleton for getting started building Elm web apps.
 - Automatic compilation of Jade, SASS, and Elm files
 - Automatic compression for HTML, CSS, and Javascript files
 - Automatic gzip compression with `zopfli` for all files
+- Automatic offline caching using Service Workers and `sw-precache`
 - BrowserSync to see changes immediately
 - Easy deployment to GitHub pages with `npm run gh-pages`
 - EditorConfig config for style consistency

@@ -11,7 +11,7 @@
     "postbuild-css": "zopfli dist/main.css && npm run build-assets",
     "build-html": "jade < src/index.jade | html-minifier -c html-minifier.json > dist/index.html",
     "postbuild-html": "zopfli dist/index.html && npm run build-assets",
-	"build-assets": "sw-precache --root=dist",
+    "build-assets": "sw-precache --root=dist",
     "prebuild": "npm run clean",
     "build": "npm run build-js && npm run build-css && npm run build-html",
     "watch-js": "nodemon -w src/elm/ -e elm --exec 'npm run build-js'",
