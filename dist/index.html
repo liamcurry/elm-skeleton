@@ -1,1 +1,15 @@
-<!DOCTYPE html><head><meta charset=utf-8><title>Hello World</title><link rel=stylesheet href=main.css><script src=main.js></script><body><script>var app=Elm.fullscreen(Elm.Main);"serviceWorker"in navigator&&navigator.serviceWorker.register("service-worker.js");</script>
+<!DOCTYPE html><head><meta charset="utf-8"><meta http-equiv="x-ua-compatible" content="ie=edge"><title>Hello World</title><meta name="description" content=""><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="main.css"></head><body><script src="main.js"></script><script>var app = Elm.fullscreen(Elm.Main, {
+    initialPath: location.pathname || '/'
+})
+</script><!--script.
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+    }
+
+--><!-- Google Analytics: change UA-XXXXX-X to be your site's IDscript.
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='https://www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X','auto');ga('send','pageview');--></body>

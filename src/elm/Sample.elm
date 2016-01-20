@@ -2,13 +2,12 @@ module Sample where
 
 import Effects exposing (Effects)
 import Html exposing (..)
-
-
-type alias Model = { }
+import TransitRouter
 
 
 type Action
     = NoOp
+    | RouterAction TransitRouter.Action
 
 
 init : (Model, Effects Action)
